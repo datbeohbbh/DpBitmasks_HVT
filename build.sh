@@ -2,28 +2,29 @@
 
 DIR=$PWD
 
-if [ $# -ne 3 ];
+NEED=4
+
+if [ $# -ne $NEED ];
 then
-    echo "$0 need to be passed 3 arguments"
+    echo "$0 need to be passed $NEED arguments"
     exit 1
 fi
 
-echo "Build from task $1 to task $2. Each $3 tests"
+echo "Build $1 from task $2 to task $3. Each $4 tests"
 
 echo 
 
-# You can edit from here
-PRJ=tests_DpBitmasks
+PRJ=$1
 
 TEST_DIR=$DIR/$PRJ
 
-TASK_FROM=$1
+TASK_FROM=$2
 
-TASK_TO=$2
+TASK_TO=$3
 
-NUMBER_TEST=$3
-# to here.
+NUMBER_TEST=$4
 
+#####################################################################################################################################
 for task in $(eval echo {$TASK_FROM..$TASK_TO});
 do
     echo "Building tests of task $task"
@@ -69,5 +70,6 @@ do
     echo
     echo
 done;
+#####################################################################################################################################
 
 exit 0
