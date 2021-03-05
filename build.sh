@@ -2,7 +2,7 @@
 
 DIR=$PWD
 
-NEED=4
+NEED=2
 
 if [ $# -ne $NEED ];
 then
@@ -10,22 +10,22 @@ then
     exit 1
 fi
 
-echo "Build $1 from task $2 to task $3. Each $4 tests"
+echo "Build $1"
 
 echo 
 
 PRJ=$1
 
+NUMBER_TEST=$2
+
 TEST_DIR=$DIR/$PRJ
 
-TASK_FROM=$2
-
-TASK_TO=$3
-
-NUMBER_TEST=$4
 
 #####################################################################################################################################
-for task in $(eval echo {$TASK_FROM..$TASK_TO});
+
+read -p "Enter task: " TASK
+
+for task in $TASK;
 do
     echo "Building tests of task $task"
     TO_TASK_DIR=$TEST_DIR/$task
@@ -70,6 +70,5 @@ do
     echo
     echo
 done;
-#####################################################################################################################################
 
 exit 0
