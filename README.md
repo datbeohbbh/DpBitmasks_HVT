@@ -1,4 +1,4 @@
-# Topic Dp + Bitmasks
+# HVT Training
 ## Statements
 + Đề bài quy hoạch động trạng thái: [Đề bài](./statements_DpBitmasks/statements.pdf)
 ## How to use (Linux only)?
