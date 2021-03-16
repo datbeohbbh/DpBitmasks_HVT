@@ -4,7 +4,9 @@
 ## How to use (Linux only)?
 + Chuẩn bị hai file là Task_solution.cpp và Task_gentest.cpp trong đó 'Task' là tên bài, vào thư mục cùng tên. Chạy lệnh sau trong terminal, sẽ tạo ra loạt thư mục chứa test.
 ```bash
-bash build.sh PRJ NUMBER_TESTS
+alias build="bash build.sh"
+
+build PRJ NUMBER_TESTS
 
 Enter task: TASK_NAME
 ```
