@@ -1,7 +1,6 @@
 # HVT Training
 ## Statements
-+ Đề bài quy hoạch động trạng thái: [Đề bài](./statements_DpBitmasks/statements.pdf)
-+ Đề bài quy hoạch động chữ số: [Đề bài](./statements_DpDigits/statements.pdf)
++ Đề bài quy hoạch động chữ số: [Đề bài](https://github.com/datbeohbbh/HVT_Training/blob/DigitDp/statements_DpDigits/statements.pdf) 
 ## How to use (Linux only)?
 + Chuẩn bị hai file là Task_solution.cpp và Task_gentest.cpp trong đó 'Task' là tên bài, vào thư mục cùng tên. Chạy lệnh sau trong terminal, sẽ tạo ra loạt thư mục chứa test.
 ```bash
