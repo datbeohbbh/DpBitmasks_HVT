@@ -1,0 +1,10 @@
+{
+      "test_dir": "test_judger",
+      "task": {
+            "A": {
+                  "checker": null,
+                  "time_limit": 1,
+                  "test_count": 10
+            }
+      }
+}
