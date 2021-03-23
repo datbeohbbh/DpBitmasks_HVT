@@ -13,7 +13,7 @@
                         "-Wextra",
                         "-Wshadow",
                         "-Wconversion",
-                        "-std=c++2a",
+                        "-std=c++17",
                         "-g",
                         "-O2"
                   ],
