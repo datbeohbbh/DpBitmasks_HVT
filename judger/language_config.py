@@ -14,7 +14,7 @@ language_config_dict = {
     "c++" : {
         "compile" : {
             "command" : "g++",
-            "version" : "-10",
+            "version" : "",
             "flag" : ["-Wall", "-Wextra", "-Wshadow", "-Wconversion", "-std=c++2a" ,"-g", "-O2"],
             "out" : "-o"
         },
