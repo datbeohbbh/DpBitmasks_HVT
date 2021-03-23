@@ -7,7 +7,7 @@
       "c++": {
             "compile": {
                   "command": "g++",
-                  "version": "-10",
+                  "version": "",
                   "flag": [
                         "-Wall",
                         "-Wextra",
