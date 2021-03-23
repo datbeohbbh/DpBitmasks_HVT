@@ -199,7 +199,7 @@ def Djudger():
         print('\n')
         
     for f in Path(CUR_DIR / 'judger_zone').iterdir():
-        Path(f).unlink(missing_ok = True)
+        Path(f).unlink()
     Path(CUR_DIR / 'judger_zone').rmdir()
     
     if Full == False:
