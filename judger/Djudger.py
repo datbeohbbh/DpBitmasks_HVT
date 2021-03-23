@@ -196,10 +196,12 @@ def Djudger():
         else:
             print("partial result: {0}/100\n".format(math.ceil(score)))
             Full = False
-        for f in Path(CUR_DIR / 'judger_zone').iterdir():
-            Path(f).unlink(missing_ok = True)
-        Path(CUR_DIR / 'judger_zone').rmdir()
         print('\n')
+        
+    for f in Path(CUR_DIR / 'judger_zone').iterdir():
+        Path(f).unlink(missing_ok = True)
+    Path(CUR_DIR / 'judger_zone').rmdir()
+    
     if Full == False:
         return 1
     else:
