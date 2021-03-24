@@ -1,0 +1,43 @@
+{
+      "extension": {
+            ".cpp": "c++",
+            ".java": "java",
+            ".py": "python3"
+      },
+      "c++": {
+            "compile": {
+                  "command": "g++",
+                  "version": "",
+                  "flag": [
+                        "-Wall",
+                        "-Wextra",
+                        "-Wshadow",
+                        "-Wconversion",
+                        "-std=c++17",
+                        "-g",
+                        "-O2"
+                  ],
+                  "out": "-o"
+            },
+            "run": [
+                  "./"
+            ]
+      },
+      "java": {
+            "compile": {
+                  "command": "javac",
+                  "out": "-d"
+            },
+            "run": [
+                  "java"
+            ]
+      },
+      "python3": {
+            "compile": {
+                  "command": "cp"
+            },
+            "run": [
+                  "python3"
+            ]
+      }
+}
