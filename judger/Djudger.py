@@ -121,6 +121,7 @@ def Djudger():
             
             if signal != 0:
                 print("Fail to compile task {0}\n".format(task_name))
+                Full = False
                 continue
             
             task = task_config[task_name]
@@ -180,11 +181,13 @@ def Djudger():
                         #print("test {0}: WA\n".format(test_id))
                         
         print("\nstatus task {0}\n".format(task_path.name))
+        
         if math.ceil(score) == 100:
-            print(f"> {bcolors.OKGREEN}perfect result: 100 points\n{bcolors.ENDC}")
+            print(f"> {bcolors.OKGREEN}perfect result: 100 points{bcolors.ENDC}\n")
         else:
-            print(f"> {bcolors.FAIL}partial result: {0} points\n{bcolors.ENDC}".format(math.ceil(score)))
+            print(f"> {bcolors.FAIL}partial result: " + str(math.ceil(score)) + f" points{bcolors.ENDC}\n")
             Full = False
+            
         print("> passed {0} tests\n".format(ac))
         print("> wrong answer {0} tests\n".format(wa))
         print("> time limit exceeded {0} tests\n".format(tle))
