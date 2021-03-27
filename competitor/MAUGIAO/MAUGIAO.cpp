@@ -69,7 +69,7 @@ namespace Task{
             int n;
             vector < vector < int > > a;
             vector < vector < int > > dp;
-            vector < vector < llong > > cnt;
+            vector < vector < int > > cnt;
             
             void solve(){
                 cin>>n;
