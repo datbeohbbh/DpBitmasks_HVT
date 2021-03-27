@@ -30,6 +30,6 @@ class Language:
             json_dict = json.load(json_file)
         return json_dict[self.lang]
     
-    def execute(self,task_name):
+    def execute(self,task_name) -> int:
         self.lang_dict_config = self.readConfig()
-        self.compile(task_name)
+        return self.compile(task_name)

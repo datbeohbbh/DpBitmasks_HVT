@@ -13,6 +13,7 @@
                         "-Wextra",
                         "-Wshadow",
                         "-Wconversion",
+                        "-Wfatal-errors",
                         "-std=c++17",
                         "-g",
                         "-O2"
