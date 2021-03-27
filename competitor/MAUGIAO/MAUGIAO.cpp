@@ -69,7 +69,7 @@ namespace Task{
             int n;
             vector < vector < int > > a;
             vector < vector < int > > dp;
-            vector < vector < int > > cnt;
+            vector < vector < llong > > cnt;
             
             void solve(){
                 cin>>n;
@@ -80,7 +80,7 @@ namespace Task{
                     }
                 }
                 dp.resize(n + 2,vector < int > ((1 << N) + 2,INF));
-                cnt.resize(n + 2,vector < int > ((1 << N) + 2,0));
+                cnt.resize(n + 2,vector < llong > ((1 << N) + 2,0));
                 for(int i = 0;i < n;++i){
                     dp[0][1 << i] = a[0][i];
                     cnt[0][1 << i] = 1;
