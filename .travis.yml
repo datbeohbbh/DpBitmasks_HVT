@@ -1,6 +1,0 @@
-dist: bionic
-
-language: cpp
-script:
-  - chmod +x startDjudger.sh
-  - bash startDjudger.sh
