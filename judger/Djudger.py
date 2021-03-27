@@ -121,6 +121,7 @@ def Djudger():
             
             if signal != 0:
                 print("Fail to compile task {0}\n".format(task_name))
+                Full = False
                 continue
             
             task = task_config[task_name]
