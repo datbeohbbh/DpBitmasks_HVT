@@ -1,4 +1,4 @@
-#!usr/bin/bash
+#!/usr/bin/env bash
 
 cd judger
 read -p "did you configure the contest? y / n: " answer 
