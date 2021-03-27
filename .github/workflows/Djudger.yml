@@ -2,9 +2,9 @@ name: Djudger
 
 on:
   push:
-    branches: [ main, DpBitmasks, DigitDp, judger ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, DpBitmasks, DigitDp, judger ]
+    branches: [ main ]
 
 jobs:
   run-tests:
@@ -17,7 +17,6 @@ jobs:
       
     - name: Run all tests
       run: |
-        chmod +x ./startDjudger.sh
-        ./startDjudger.sh
+        echo "HELLO"
       shell: bash
     
