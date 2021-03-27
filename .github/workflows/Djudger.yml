@@ -14,7 +14,10 @@ jobs:
   
     steps:
     - uses: actions/checkout@v2
+      
     - name: Run all test
-      run: ./startDjudger.sh
+      run: |
+        chmod +x ./startDjudger.sh
+        ./startDjudger.sh
       shell: bash
     
