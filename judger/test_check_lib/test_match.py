@@ -24,7 +24,7 @@ def testCompare(author_ans,competitor_ans) -> bool:
         l = removeRedundantCharacter(l)
         r = removeRedundantCharacter(r)
         if len(l) != len(r):
-            print("not same")
+            print("> not same\n")
             return False
         else:
             cur_line = 1
@@ -32,8 +32,9 @@ def testCompare(author_ans,competitor_ans) -> bool:
                 x = x.strip()
                 y = y.strip()
                 if x != y:
-                    print("different was found on line {0}".format(cur_line))
-                    print("expected output : {0}".format(x),"but found {0}".format(y))
+                    print("> different was found on line {0}\n".format(cur_line))
+                    print("> expected output: {0}\n".format(x))
+                    print("> actual output: {0}\n".format(y))
                     return False
                 else :
                     cur_line += 1
