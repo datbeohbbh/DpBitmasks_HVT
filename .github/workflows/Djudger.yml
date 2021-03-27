@@ -1,0 +1,23 @@
+name: Djudger
+
+on:
+  push:
+    branches: [ DigitDp ]
+  pull_request:
+    branches: [ DigitDp ]
+
+jobs:
+  run-tests:
+    
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+  
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Run all tests
+      run: |
+        chmod +x ./startDjudger.sh
+        ./startDjudger.sh
+      shell: bash
+    
