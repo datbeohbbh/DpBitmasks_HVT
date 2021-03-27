@@ -1,40 +1,10 @@
 {
-      "test_dir": "tests_DpBitmasks",
+      "test_dir": "test_judger",
       "task": {
             "A": {
                   "checker": null,
-                  "time_limit": 3,
-                  "test_count": 30
-            },
-            "B": {
-                  "checker": "check.cpp",
-                  "time_limit": 5,
-                  "test_count": 30
-            },
-            "C": {
-                  "checker": null,
-                  "time_limit": 5,
-                  "test_count": 30
-            },
-            "D": {
-                  "checker": "check.cpp",
-                  "time_limit": 5,
-                  "test_count": 30
-            },
-            "E": {
-                  "checker": null,
-                  "time_limit": 4,
-                  "test_count": 30
-            },
-            "LEM3": {
-                  "checker": null,
                   "time_limit": 1,
-                  "test_count": 30
-            },
-            "MAUGIAO": {
-                  "checker": null,
-                  "time_limit": 3,
-                  "test_count": 30
+                  "test_count": 10
             }
       }
 }
