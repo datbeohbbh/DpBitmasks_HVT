@@ -8,12 +8,25 @@ import time
 import threading
 import json
 import math
+import datetime
 
 from language.language_execute_base import Language
 from language.cpp_impl import CppImpl
 from language.python_impl import PythonImpl
 from language.java_impl import JavaImpl
 from test_check_lib import test_match
+
+# color class
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    
 
 # set class suit with extension
 lang_process = {
@@ -88,7 +101,7 @@ def startMultiprocessing(process,task_name,time_limit,args):
 def testCompare(author_ans,competitor_ans) -> bool:
     return test_match.testCompare(author_ans,competitor_ans)
 
-def doChecker(checker_process,checker_name,inp,out,ans) -> int:
+def doChecker(checker_process,checker_name,inp,out,ans) -> bool:
     return test_match.doChecker(checker_process,checker_name,inp,out,ans)
 
 def Djudger():
@@ -108,6 +121,7 @@ def Djudger():
             
             if signal != 0:
                 print("Fail to compile task {0}\n".format(task_name))
+                Full = False
                 continue
             
             task = task_config[task_name]
@@ -126,20 +140,28 @@ def Djudger():
                 del checker_process
                 del checker_name
                 del checker_extension
-            
+                    
+            ac,wa,tle = 0,0,0
+            print('\n')
             for test_id in range(test_count):
                 TEST_PATH = TEST_DIR / task_name / ('test' + str(test_id))
-                print("Running on test {0}".format(test_id))
 
+                start_time = datetime.datetime.utcnow()
+                
                 is_alive = startMultiprocessing(process,
                                                 task_name,
                                                 time_limit,
                                                 ['<',str(TEST_PATH) + '/' + task_name + '.inp', 
                                                 '>',str(CUR_DIR / 'judger_zone' / 'test.ans')])
                 
+                end_time = datetime.datetime.utcnow()
+                
                 if is_alive:
-                    print("test {0}: TLE\n".format(test_id))
+                    #print("test {0}: TLE\n".format(test_id))
+                    print("Running on test {0} . . . . . . {1} ms".format(test_id,"?? :v ??"))
+                    tle += 1
                 else :
+                    print("Running on test {0} . . . . . . {1} ms".format(test_id,(end_time - start_time).total_seconds()))
                     is_match = False
                     if task['checker']:
                         is_match = doChecker(checker_process,
@@ -150,17 +172,26 @@ def Djudger():
                     else:
                         is_match = testCompare(str(TEST_PATH) + '/' + task_name + '.out'
                                               ,str(CUR_DIR / 'judger_zone' / 'test.ans'))
-                    if is_match:
-                        print("test {0}: OK\n".format(test_id))
+                    if is_match == True:
+                        #print("test {0}: OK\n".format(test_id))
+                        ac += 1
                         score += 100 / test_count
                     else:
-                        print("test {0}: WA\n".format(test_id))
+                        wa += 1
+                        #print("test {0}: WA\n".format(test_id))
+                        
+        print("\nstatus task {0}\n".format(task_path.name))
+        
         if math.ceil(score) == 100:
-            print("perfect result: 100/100\n")
+            print(f"> {bcolors.OKGREEN}perfect result: 100 points{bcolors.ENDC}\n")
         else:
-            print("partial result: {0}/100\n".format(math.ceil(score)))
+            print(f"> {bcolors.FAIL}partial result: " + str(math.ceil(score)) + f" points{bcolors.ENDC}\n")
             Full = False
-        print('\n')
+            
+        print("> passed {0} tests\n".format(ac))
+        print("> wrong answer {0} tests\n".format(wa))
+        print("> time limit exceeded {0} tests\n".format(tle))
+        print('> ========================================================================= <\n')
         
     for f in Path(CUR_DIR / 'judger_zone').iterdir():
         Path(f).unlink()
