@@ -29,6 +29,8 @@ namespace DEBUG {
 #define debug(x...)
 #endif
 
+    
+    
 #define rand __rand
     mt19937 generator(chrono::system_clock::now().time_since_epoch().count());
     template <class T = int>
