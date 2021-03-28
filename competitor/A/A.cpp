@@ -116,6 +116,11 @@ namespace Task{
                     }
                     llong ans = 0;
                     cout<<f(r) - f(l - 1)<<'\n';
+                    /*
+                     * 
+                     * akjadkjdasd
+                     * 
+                     * */
                 }
             }
     };
