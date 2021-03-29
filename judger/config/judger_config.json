@@ -23,7 +23,7 @@
             },
             "E": {
                   "checker": null,
-                  "time_limit": 3,
+                  "time_limit": 5,
                   "test_count": 30
             }
       }
