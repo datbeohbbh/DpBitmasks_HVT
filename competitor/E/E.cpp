@@ -67,7 +67,7 @@ namespace Task{
             static const int LCM = 2520;
             static const int N = 20;
             static const int MAXDIGITS = 10;
-            //llong dp[N + 2][(1 << MAXDIGITS) + 2][LCM + 2][2];
+            llong dp[N + 2][(1 << MAXDIGITS) + 2][LCM + 2][2];
 
             llong f(llong val,int lim){
                 if(val <= 0){
@@ -80,8 +80,15 @@ namespace Task{
                 int L = len(digits);
                 //llong dp[L + 2][(1 << MAXDIGITS) + 2][LCM + 2][2] = {-1};
                 //memset(dp,-1,sizeof(dp));
-                vector < vector < vector < vector < llong > > > > 
-                dp(L + 1,vector < vector < vector < llong > > > ((1 << MAXDIGITS) + 1,vector < vector < llong > > (LCM + 1,vector < llong > (2,-1))));
+                for(int pos = 0;pos < L;++pos){
+                    for(int mask = 0;mask < (1 << MAXDIGITS);++mask){
+                        for(int rm = 0;rm < LCM;++rm){
+                            for(int flag = 0;flag < 2;++flag){
+                                dp[pos][mask][rm][flag] = -1;
+                            }
+                        }
+                    }
+                }
                 dp[len(digits) - 1][0][0][1] = 1;
                 for(int pos = len(digits) - 1;pos > 0;--pos){
                     for(int mask = 0;mask < (1 << MAXDIGITS);++mask){
