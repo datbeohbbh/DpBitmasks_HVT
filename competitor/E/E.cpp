@@ -61,13 +61,12 @@ T tabs(T x){
 
 namespace Task{
 
+    const int LCM = 2520;
+    const int N = 20;
+    const int MAXDIGITS = 10;
+    llong dp[N + 2][(1 << MAXDIGITS) + 2][LCM + 2][2];
     class Solver{
         public:
-
-            static const int LCM = 2520;
-            static const int N = 20;
-            static const int MAXDIGITS = 10;
-            llong dp[N + 2][(1 << MAXDIGITS) + 2][LCM + 2][2];
 
             llong f(llong val,int lim){
                 if(val <= 0){
@@ -89,7 +88,7 @@ namespace Task{
                         }
                     }
                 }
-                dp[len(digits) - 1][0][0][1] = 1;
+                dp[L - 1][0][0][1] = 1;
                 for(int pos = len(digits) - 1;pos > 0;--pos){
                     for(int mask = 0;mask < (1 << MAXDIGITS);++mask){
                         for(int rm = 0;rm < LCM;++rm){
