@@ -78,8 +78,10 @@ namespace Task{
                     digits.emplace_back(val % 10);
                 }
                 int L = len(digits);
-                llong dp[L + 2][(1 << MAXDIGITS) + 2][LCM + 2][2];
-                memset(dp,-1,sizeof(dp));
+                llong dp[L + 2][(1 << MAXDIGITS) + 2][LCM + 2][2] = {-1};
+                //memset(dp,-1,sizeof(dp));
+                //vector < vector < vector < vector < llong > > > > 
+                //dp(L + 1,vector < vector < vector < llong > > > ((1 << MAXDIGITS) + 1,vector < vector < llong > > (LCM + 1,vector < llong > (2,-1))));
                 dp[len(digits) - 1][0][0][1] = 1;
                 for(int pos = len(digits) - 1;pos > 0;--pos){
                     for(int mask = 0;mask < (1 << MAXDIGITS);++mask){
