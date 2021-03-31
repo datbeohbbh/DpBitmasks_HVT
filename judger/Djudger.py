@@ -121,9 +121,10 @@ def Djudger():
             
             process = getLangProcess(extension,str(task_path.parent),str(CUR_DIR / 'judger_zone'))
             signal = process.execute(task_name)
+            time.sleep(1)
             
             if signal != 0:
-                print("Fail to compile task {0}\n".format(task_name))
+                print(f"> {bcolors.FAIL}Fail to compile task " + task_name + "{bcolors.ENDC}\n")
                 Full = False
                 continue
             
@@ -197,6 +198,8 @@ def Djudger():
         print('> ========================================================================= <\n')
         
         summary.append((task_name,math.ceil(score)))
+        
+        time.sleep(1)
 
     print('\nSummary:')
     for tup in summary:
