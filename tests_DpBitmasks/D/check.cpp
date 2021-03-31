@@ -1,69 +1,83 @@
 #include <bits/stdc++.h>
-#define lli long long
-#define pii pair<int, int>
 
 using namespace std;
-ifstream fi, fo, fa;
 
-char TestPath[1000], CurrPath[1000];
-char fINP[1000], fOUT[1000], fANS[1000];
-
-void themis_init(const char* inName, const char* outName){
-    gets(TestPath);
-    gets(CurrPath);
-
-    sprintf(fINP, "%s\\%s", TestPath, inName);
-    sprintf(fANS, "%s\\%s", TestPath, outName);
-    sprintf(fOUT, "%s\\%s", CurrPath, outName);
-    fi.open(fINP, ifstream::in);
-    fa.open(fANS, ifstream::in);
-    fo.open(fOUT, ifstream::in);
+template <class T,class U>
+void maximize(T &lhs,U rhs){
+    if(lhs < rhs)lhs = rhs;
+}
+template <class T,class U>
+void minimize(T &lhs,U rhs){
+    if(lhs > rhs)lhs = rhs;
+}
+template <class T>
+T tabs(T x){
+    return (x < (T)0 ? -x : x);
 }
 
-void themis_close(){
-    fi.close();
-    fa.close();
-    fo.close();
+#define len(c) (int)((c).size())
+#define llong int64_t
+#define MASK(i) ((1LL) << (i))
+#define BIT(x,i) (((x) >> (i)) & 1)
+#define file_name "test"    /// FILE NAME HERE!!!
+
+/* ================================= END OF TEMPLATE ================================= */
+
+// success signal is 0, else fail
+
+ifstream finp,fout,fans;
+
+void init_ifstream(string init_finp,string init_fout,string init_fans){
+    finp.open(init_finp,ifstream::in);
+    fout.open(init_fout,ifstream::in);
+    fans.open(init_fans,ifstream::in);
 }
 
+void close_ifstream(){
+    finp.close();
+    fout.close();
+    fans.close();
+}
 
-void check(){
-    /*
-    const string PATH = "/home/datbeohbbh/Desktop/MY_PROJECT/HVT_DpBitmasks/DpBitmasks_HVT/tests_DpBitmasks/D/mock_test";
-    
-    fi.open(PATH + "/D.inp",ifstream::in);
-    fa.open(PATH + "/D.ans",ifstream::in);
-    fo.open(PATH + "/D.out",ifstream::in);
-    */
-    
-    bool ok = true;
-    
+int message(int flag){
+    if(!flag){
+        // success message
+        cout<<"> competitor's answer is OK!!\n";
+    } else {
+        cout<<"> competitor found wrong answer.\n";
+    }
+    return flag;
+}
+
+int check(){
+    // ok show if competitor's answer is correct - 0/1 <=> wrong/correct.
+    int ok = 1;
     function < int(pair < int,int >,pair < int,int > v) > dist = [](pair < int,int > u,pair < int,int > v) -> int{
         return (u.first - v.first) * (u.first - v.first) + (u.second - v.second) * (u.second - v.second);
     };
 
     vector < pair < int,int > > coordinates;
-    int x,y; fi>>x>>y;
+    int x,y; finp>>x>>y;
     coordinates.emplace_back(make_pair(x,y));
     
-    int n; fi>>n;
+    int n; finp>>n;
     
-    while(fi>>x>>y){
+    while(finp>>x>>y){
         coordinates.emplace_back(make_pair(x,y));
     }
 
     int expected_dist;
-    fo >> expected_dist;
+    fout >> expected_dist;
     
     int cper_dist;
-    fa >> cper_dist;
+    fans >> cper_dist;
 
     if(cper_dist != expected_dist){
         ok &= false;
     } else {
         vector < int > cper_path;
         int val;
-        while(fa >> val){
+        while(fans >> val){
             cper_path.emplace_back(val);
         }
         if((int)cper_path.size() <= 2){
@@ -90,15 +104,21 @@ void check(){
             }
         }
     }
-    
-    cout<<(ok ? "1.0\n" : "0.0\n");
+    // do not edit 'return' line.
+    return message(ok ? 0 : 1);
 }
 
-int main(){
-    char fin[] = "D.inp";
-    char fou[] = "D.out";
-    themis_init(fin, fou);
-    check();
-    themis_close();
-    return 0;
+int main(int argc, char** argv){
+    ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+    if(argc != 4){
+        exit(1);
+    } else {
+        init_ifstream(argv[1],argv[2],argv[3]);
+        int signal = check();
+        close_ifstream();
+        cout<<'\n';
+        exit(signal);
+    }
 }
+
+

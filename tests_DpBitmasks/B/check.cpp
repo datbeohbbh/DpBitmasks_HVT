@@ -73,7 +73,7 @@ int check(){
     }
     
     vector < int > cper_ans;
-    cout<<"CPER\n";
+    cout<<"CPER:\n";
     while(fans >> val){
         cper_ans.emplace_back(val);
         cout<<val<<' ';
