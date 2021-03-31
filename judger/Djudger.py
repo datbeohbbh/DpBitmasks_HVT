@@ -106,6 +106,9 @@ def doChecker(checker_process,checker_name,inp,out,ans) -> bool:
 
 def Djudger():
     Full = True
+    
+    summary = []
+    
     for task_path in competitor_task_path:
         print("Start testing task {0}\n".format(task_path.name))
         extension = task_path.suffix
@@ -134,7 +137,7 @@ def Djudger():
             
             if task['checker']:
                 checker_name,checker_extension = task['checker'].split('.')
-                checker_process = getLangProcess(checker_extension,str(TEST_DIR / task_name),str(CUR_DIR / 'judger_zone'))
+                checker_process = getLangProcess('.' + checker_extension,str(TEST_DIR / task_name),str(CUR_DIR / 'judger_zone'))
                 checker_process.execute(checker_name)
             else :
                 del checker_process
@@ -192,6 +195,16 @@ def Djudger():
         print("> wrong answer {0} tests\n".format(wa))
         print("> time limit exceeded {0} tests\n".format(tle))
         print('> ========================================================================= <\n')
+        
+        summary.append((task_name,math.ceil(score)))
+
+    print('\nSummary:')
+    for tup in summary:
+        task_name,score = tup
+        if score == 100:
+            print(f"> {bcolors.OKGREEN}task " + task_name + f": 100 points{bcolors.ENDC}\n")
+        else:
+            print(f"> {bcolors.FAIL}task " + task_name + f": " + str(score) + f" points{bcolors.ENDC}\n")
         
     for f in Path(CUR_DIR / 'judger_zone').iterdir():
         Path(f).unlink()

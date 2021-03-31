@@ -2,7 +2,7 @@
       "test_dir": "test_judger",
       "task": {
             "A": {
-                  "checker": null,
+                  "checker": "check.cpp",
                   "time_limit": 1,
                   "test_count": 10
             }

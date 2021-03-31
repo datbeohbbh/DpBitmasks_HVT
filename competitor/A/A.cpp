@@ -67,7 +67,7 @@ namespace Task{
             void solve(){
                 int a,b; cin>>a>>b;
                 int x = rand(5);
-                if(x < 5){
+                if(x < 4){
                     cout<<a + b<<'\n';
                 } else if(x > 3){
                     cout<<a - b<<'\n';
