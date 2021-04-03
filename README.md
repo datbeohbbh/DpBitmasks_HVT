@@ -1,6 +1,6 @@
 # HVT Training
 ## Statements
-+ Đề bài quy hoạch động trạng thái: [Đề bài](https://github.com/datbeohbbh/HVT_Training/blob/DpBitmasks/statements_DpBitmasks/statements.pdf)
++ Đề bài cho đội tuyển ngày 03/04/2021: [Đề bài](https://github.com/datbeohbbh/HVT_Training/blob/DT20210403/statements/DT20210403.pdf)
 ## How to use (Linux only)?
 + Chuẩn bị hai file là Task_solution.cpp và Task_gentest.cpp trong đó 'Task' là tên bài, vào thư mục cùng tên. Chạy lệnh sau trong terminal, sẽ tạo ra loạt thư mục chứa test.
 ```bash
