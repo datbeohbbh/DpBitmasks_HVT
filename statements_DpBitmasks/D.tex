@@ -1,0 +1,42 @@
+Cô gái Lena thích khi mọi thứ có thứ tự, và tìm kiếm thứ tự ở mọi nơi. Một ngày nọ, khi đang chuẩn bị cho việc đi học, cô để ý thấy rằng căn phòng của cô thật bừa bộn - tất cả đồ vật từ cặp cô ý bị ném ra khắp phòng. Tất nhiên, cô gái muốn để chúng lại cặp. Vấn đề ở đây là cô gái không thể mang \textbf{nhiều hơn hai} đồ vật trong cùng một lúc, và cô gái không thể \textbf{di chuyển chiếc cặp}. Và một khi đã lấy được đồ vật, cô ta không thể để bất kì đâu ngoài chiếc cặp.
+\\
+\\
+Bạn được cho tọa độ của chiếc cặp và tọa độ của các món đồ trong hệ tọa độ Descartes. Biết rằng thời gian cô gái di chuyển giữa hai đồ vật bất kì bằng bình phương khoảng cách của hai đồ vật đó. Cũng biết rằng, vị trí ban đầu của cô và chiếc cặp là như nhau. Bạn được yêu cầu tìm thứ tự các hành động, mà cô gái có thể để tất cả các đồ vật vào cặp trong thời gian ít nhất.  
+\\
+
+\textbf{Input}
+\\
+Dòng đầu tiên chứa tọa độ chiếc cặp $x_{s}$, $y_{s}$. Dòng thứ hai chứa số nguyên $n$ $(1 \leq n \leq 24)$ - số lượng đồ vật cô gái có. Tiếp theo $n$ dòng là tọa độ các đồ vật. Tất cả các tọa độ có giá trị tuyệt đối không vượt quá $100$. Tất cả các vị trí được cho là đôi một khác nhau. Tất cả đều là số nguyên. 
+\\
+
+\textbf{Output}
+\\
+Dòng đầu tiên chứa một số nguyên duy nhất - thời gian ít nhất để cô gái đặt hết đồ vật vào cặp. \\
+\\
+Dòng thứ hai chứa thứ tự tối ưu của Lena. Chiếc cặp được đánh chỉ số là $0$ và các đồ vật chỉ số (từ $1$ tới $n$). Đường đi phải bắt đầu và kết thục tại chiếc cặp. Nếu có nhiều kết quả tối ưu, in ra bất kì.
+\\
+
+\textbf{Ví dụ}
+\begin{table}[h!]
+    \begin{center}
+        \begin{tabular}{|p{7cm}|p{5cm}|}
+            \hline
+            \textbf{Input} & \textbf{Output} \\ 
+            \hline
+            0 0 & \\
+            2 & 8 \\
+            1 1 & 0 1 2 0\\
+            -1 1 & \\
+            \hline
+            1 1 & \\
+            3 & \\
+            4 3 & 32 \\
+            3 4 & 0 1 2 0 3 0 \\
+            0 0 & \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+
+

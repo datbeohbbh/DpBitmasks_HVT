@@ -1,0 +1,43 @@
+Bạn được cho một ma trận $a$ kích thước $m$ x $n$. Trong một lượt di chuyển, bạn có thể chọn bất kì cột nào và dịch chuyển (cyclically shift) các phần tử trong cột này. Bạn có thể thực hiện các thao tác như đã nêu bao nhiêu lần tùy ý (có thể không lần). Bạn có thể thực hiện thao tác trên một cột vô số lần. 
+\\
+\\
+Sau khi dịch chuyển, bạn tính toán với mỗi hàng giá trị lớn nhất trong nó. Giả sử hàng thứ $i$ có giá trị lớn nhất là $r_{i}$. Giá trị lớn nhất của $r_{1} + r_{2} + ... + r_{n}$?.
+\\
+
+\textbf{Input}
+\\
+Dòng đầu tiên là số nguyên $t$ $(1 \leq t \leq 40)$, số lượng test cases.
+\\
+\\
+Dòng đầu tiên của mỗi test case chứa hai số nguyên $n$ và $m$ $(1 \leq n \leq 4, 1 \leq m \leq 100)$ - Số lượng hàng và cột của ma trận $a$.
+\\
+\\
+Tiếp theo là $n$ dòng, mỗi dòng chứa $m$ số nguyên là phần tử của ma trận $a$ $(1 \leq a_{i,j} \leq 10^{5})$.
+\\
+
+\textbf{Output}
+\\
+In ra $t$ số nguyên: câu trả lời của mỗi test case theo thứ tự trong input.
+\\
+
+\textbf{Ví dụ}
+\begin{table}[h!]
+    \begin{center}
+        \begin{tabular}{|p{7cm}|p{5cm}|}
+            \hline
+            \textbf{Input} & \textbf{Output} \\ 
+            \hline
+            2 & 12 \\
+            2 3 & 29\\
+            2 5 7 & \\
+            4 2 4 & \\
+            3 6 & \\
+            4 1 5 2 10 4  & \\
+            8 6 6 4 9 10  & \\
+            5 4 9 5 8 7 & \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+
