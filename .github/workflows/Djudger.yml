@@ -2,9 +2,9 @@ name: Djudger
 
 on:
   push:
-    branches: [ main, DpBitmasks, DigitDp, judger ]
+    branches: [ DpBitmasks ]
   pull_request:
-    branches: [ main, DpBitmasks, DigitDp, judger ]
+    branches: [ DpBitmasks ]
 
 jobs:
   run-tests:
