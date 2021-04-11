@@ -17,7 +17,8 @@ jobs:
       
     - name: Run all tests
       run: |
-        chmod +x ./startDjudger.sh
-        ./startDjudger.sh
+        chmod +x Djudger.py
+        python3 Djudger.py
+      working-directory: ./judger
       shell: bash
     
